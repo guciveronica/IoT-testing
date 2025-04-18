@@ -33,4 +33,4 @@ while True:
     cl.send(response)
     cl.close()
 
-#There is a first for everything
+#There is a first for everything right?
