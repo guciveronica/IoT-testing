@@ -29,9 +29,54 @@
                 background-color:hsla(259, 47%, 43%, 0.6);
             }
 
-            div{
-                display:inline-block;
+           
+            #boardbase{
+                position: absolute;
+                width: max-content;
+                height: max-content;
+                margin: auto;
+                background-color: antiquewhite;
+                padding: 18px;
             }
+            .row{
+                display: flex;
+            }
+            .hole{
+                width: 6px;
+                height: 6px;
+                background-color: gray;
+                margin: 6px;
+                display: inline-block;
+            }
+
+            .led{
+                width: 90px; height: 90px;
+                background: var(--led-col);
+                border-radius: 50%;
+                box-shadow: 0 10px 0 var(--led-col), 0 20px 0 var(--led-col), 0 30px 0 var(--led-col), 0 30px 0 10px var(--led-rim-col), 0 40px 0 10px var(--led-rim-col), inset 6px 8px 0 -3px #fff5;
+            }
+
+            #b-led{
+                --led-col: blue;
+                --led-rim-col: #99f;
+                left: 50px; top: 120px;
+            }
+
+
+            #r-led{
+                --led-col: red;
+                --led-rim-col: #f99;
+                left: 190px; top: 120px;
+            }
+
+            #components{
+                position: absolute;
+            }
+
+            .comp{
+                position: absolute;
+            }
+        
         </style>
     
     </head>
@@ -39,34 +84,73 @@
 
 
     <body>
-         <h1>ESP32 Pins</h1>
-        <table border="1"> 
-            <tr>
-                <th>Name</th>
-                <th>Pin</th>
-                <th>Value</th>
-            </tr>
-            <tr>
 
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr> %s 
-        </table>
+
+
+        <h1>ESP32 Pins</h1>
+
+        <div id="boardbase">
+            <div id="components">
+                <div class="comp led" id="b-led"></div>
+                <div class="comp led" id="r-led"></div>
+            </div>
+            <div id="holes"></div>
+        </div>
+        <div style="display: inline-block; width: 100px; height: 100px "></div>
+            <table border="1" style="display: inline-block;"> 
+                <tr>
+                    <th>Name</th>
+                    <th>Pin</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr> %s 
+            </table>
+        
+
+        <script>
+            const base = document.getElementById('boardbase');
+            const holes = document.getElementById('holes');
+            for (i=0; i<14;i++){
+                let row = document.createElement('div');
+                row.className='row';
+                
+                if ([1,6,11].includes(i)){
+                    row.style.setProperty('margin-bottom','12px')
+                }
+                
+                for (j=0; j<63; j++){
+                    let hole = document.createElement('div');
+                    hole.className = 'hole';
+                    row.appendChild(hole);
+                    if ([0,1,12,13].includes(i)&& [0,1,7,13,19,25,31,37,43,49,55,61,62].includes(j)){
+                        hole.style.setProperty('background','transparent')
+                    }
+                }
+                
+                holes.appendChild(row);
+            }
+            
+
+        </script>
     </body>
 </html>

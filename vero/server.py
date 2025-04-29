@@ -1,7 +1,7 @@
 import machine
 import network
 import socket
-
+pins= 
 ap = network.WLAN (network.AP_IF)
 ap.active (True)
 ap.config (essid = 'Tony')
@@ -24,7 +24,7 @@ while True:
     cl_file = cl.makefile('rwb', 0)
     while True:
         line = cl_file.readline()
-        #print(line)
+        print(line)
         if not line or line == b'\r\n':
             break
     rows = ['<tr><td>%s</td><td>%d</td></tr>' % (str(p), p.value()) for p in pins]
