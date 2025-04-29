@@ -3,7 +3,7 @@
     <head> 
         <title>ESP32 Pins</title> 
         <link rel="icon" type="image/x-icon" href="heart/favicon.ico">
-
+        <link rel="stylesheet" href="design.css"
         <style>
             body{
                 background-color: hsl(314, 100%, 95%);
@@ -31,10 +31,10 @@
 
            
             #boardbase{
-                position: absolute;
+                
                 width: max-content;
                 height: max-content;
-                margin: auto;
+                
                 background-color: antiquewhite;
                 padding: 18px;
             }
@@ -48,33 +48,79 @@
                 margin: 6px;
                 display: inline-block;
             }
-
-            .led{
-                width: 90px; height: 90px;
-                background: var(--led-col);
-                border-radius: 50%;
-                box-shadow: 0 10px 0 var(--led-col), 0 20px 0 var(--led-col), 0 30px 0 var(--led-col), 0 30px 0 10px var(--led-rim-col), 0 40px 0 10px var(--led-rim-col), inset 6px 8px 0 -3px #fff5;
-            }
-
-            #b-led{
-                --led-col: blue;
-                --led-rim-col: #99f;
-                left: 50px; top: 120px;
-            }
-
-
-            #r-led{
-                --led-col: red;
-                --led-rim-col: #f99;
-                left: 190px; top: 120px;
-            }
-
             #components{
                 position: absolute;
             }
 
             .comp{
                 position: absolute;
+            }
+            .led{
+                width: 40px; height: 40px;
+                background: var(--led-col);
+                border-radius: 50%;
+                box-shadow: 0 4px 0 var(--led-col), 0 8px 0 var(--led-col), 0 12px 0 3px var(--rim)
+                ;
+            }
+            #red_led{
+                --led-col : red;
+                --rim: rgb(207, 13, 13);
+                left:350px; top: 200px;
+            }
+            #yel_led{
+                --led-col: rgb(255, 204, 0);
+                --rim:rgb(238, 148, 13);
+                left: 400px; top: 200px
+            }
+            #grn_led{
+                --led-col: rgb(15, 170, 15);
+                --rim: rgb(5, 93, 5);
+                left: 450px; top:200px
+            }
+            #rgb_led{
+                --led-col: rgb(221, 247, 249);
+                --rim: rgb(186, 218, 220);
+                left: 700px; top: 200px;
+            }
+            .highlight{
+                width:7px; height: 7px; border-radius: 50%; position: absolute; background-color: rgb(233, 238, 240); left:5px;top:5px;
+                box-shadow: 3px 3px 5px 5px rgba(233, 238, 240, 0.528), 
+                            2px 2px 0 0  rgba(233, 238, 240, 0.528);
+            }
+            #huzzah{
+                width: 300px; height: 150px; background-color: rgb(60, 33, 2); top: 50px; left: 0px; position: absolute; border-radius: 10%;
+
+            }
+            .mem{
+                width:100px; height:100px; background-color: rgb(179, 175, 175); position:absolute; box-shadow: 3px 3px 3px 5px rgb(161, 158, 158); top: 25px; left:150px;
+            }
+            .circ{
+                width: 25px; height: 25px; position: absolute;  border-radius: 50%;background-color: rgb(208, 150, 74); box-shadow: inset 3px 4px 0 -5px  rgb(151, 100, 30);
+            }
+
+            #mcp{
+                width: 120px; height: 70px; background: rgb(13, 13, 163);position: absolute; top: 25px; left: 500px; border-radius: 20%;
+            }
+
+            #potent{
+                position: absolute; background: rgb(157, 155, 155); width: 110px; height: 60px; top: 80px; left: 750px; border-radius: 20%;
+            }
+            #body_pot{
+                position: absolute; background: rgb(122, 121, 121); width: 30px; height: 30px; top: -30px; left: 40px; 
+            }
+            #button_pot{
+                position: absolute; background: #3b3a3a; width: 100px; height: 100px; top: -140px; left: 5px; clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%); border-radius: 20%;
+            }
+            #button_pot_base{
+                position: absolute; width:120px; height: 20px; background: #3b3a3a;
+                top: -50px; left:-5px;
+            }
+            #details{
+                position: absolute; background: #000; width: 120px; height: 10px; top: -60px; left: -5px; clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+            }
+            #button{
+                width: 50px; height: 50px; background-color: rgb(171, 168, 168);
+                position: absolute; top: 120px; left: 950px;
             }
         
         </style>
@@ -88,15 +134,28 @@
 
 
         <h1>ESP32 Pins</h1>
-
-        <div id="boardbase">
-            <div id="components">
-                <div class="comp led" id="b-led"></div>
-                <div class="comp led" id="r-led"></div>
+        <div style="display: flex; align-items: flex-start; gap: 100px;">
+            
+            <div id="boardbase">
+                <div id="components">
+                    <div class="comp led"  id="red_led"></div>
+                    <div class="comp led" id="yel_led"></div>
+                    <div class="comp led" id="grn_led"></div>
+                    <div class="comp led" id="rgb_led"></div>
+                    <div class="comp " id="huzzah"></div>
+                    <div class="comp " id="mcp"></div>
+                    <div class="comp" id="potent">
+                        <div id="body_pot"></div>
+                        <div id="button_pot"></div>
+                        <div id="button_pot_base"></div>
+                        <div id="details"></div>
+                        
+                    </div>  
+                    <div class="comp" id="button"></div>          
+                </div>
+                <div id="holes"></div>
             </div>
-            <div id="holes"></div>
-        </div>
-        <div style="display: inline-block; width: 100px; height: 100px "></div>
+
             <table border="1" style="display: inline-block;"> 
                 <tr>
                     <th>Name</th>
@@ -125,7 +184,7 @@
                     <td>3</td>
                 </tr> %s 
             </table>
-        
+        </div>
 
         <script>
             const base = document.getElementById('boardbase');
@@ -135,7 +194,7 @@
                 row.className='row';
                 
                 if ([1,6,11].includes(i)){
-                    row.style.setProperty('margin-bottom','12px')
+                    row.style.setProperty('margin-bottom','12px');
                 }
                 
                 for (j=0; j<63; j++){
@@ -143,13 +202,58 @@
                     hole.className = 'hole';
                     row.appendChild(hole);
                     if ([0,1,12,13].includes(i)&& [0,1,7,13,19,25,31,37,43,49,55,61,62].includes(j)){
-                        hole.style.setProperty('background','transparent')
+                        hole.style.setProperty('background','transparent');
                     }
                 }
                 
                 holes.appendChild(row);
             }
             
+            const leds = document.getElementsByClassName('led');
+            for (let i = 0; i < leds.length; i++) {
+                let highlight = document.createElement('div');
+                highlight.className = 'highlight';
+                leds[i].appendChild(highlight);
+            }
+
+            const huzzah= document.getElementById('huzzah');
+            let mem_blck=document.createElement('div');
+            mem_blck.className='mem';
+            for (m=0; m<2; m++){
+                let circ=document.createElement('div');
+                circ.className='circ';
+                if (m==0){
+                    circ.style.setProperty('top', '10px');
+                    circ.style.setProperty('left', '10px');
+                }
+                else{
+                circ.style.setProperty('top','115px');
+                circ.style.setProperty('left','10px');
+                }
+                huzzah.appendChild(circ);
+            }
+            
+            huzzah.appendChild(mem_blck);
+
+            const mcp= document.getElementById('mcp');
+            for (n=0; n<2; n++){
+                let circ1=document.createElement('div');
+                circ1.className='circ';
+                if (n==0){
+                    circ1.style.setProperty('top', '5px');
+                    circ1.style.setProperty('left', '5px');
+                }
+                else{
+                circ1.style.setProperty('top','5px');
+                circ1.style.setProperty('left','90px');
+                }
+                mcp.appendChild(circ1);
+            }
+
+            const button= document.getElementById('button');
+
+
+
 
         </script>
     </body>
