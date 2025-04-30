@@ -1,0 +1,129 @@
+
+body{
+    background-color: hsl(314, 100%, 95%);
+    align-items: center;
+}
+h1{
+    align-items: center;
+    color: darkred;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+table, th, td{
+    border: 2px solid hsl(314, 100%, 95%);
+    border-collapse: collapse;
+
+}
+
+th, td{
+    text-align:center;
+    padding: 3px;
+}
+tr:nth-child(odd){
+    background-color:hsla(259, 47%, 43%, 0.6);
+}
+
+
+#boardbase{
+    
+    width: max-content;
+    height: max-content;
+    
+    background-color: antiquewhite;
+    padding: 18px;
+}
+.row{
+    display: flex;
+}
+.hole{
+    width: 6px;
+    height: 6px;
+    background-color: gray;
+    margin: 6px;
+    display: inline-block;
+}
+#components{
+    position: absolute;
+}
+
+.comp{
+    position: absolute;
+}
+.led{
+    width: 40px; height: 40px;
+    background: var(--led-col);
+    border-radius: 50%;
+    box-shadow: 0 4px 0 var(--led-col), 0 8px 0 var(--led-col), 0 12px 0 3px var(--rim)
+    ;
+}
+#red_led{
+    --led-col : red;
+    --rim: rgb(207, 13, 13);
+    left:350px; top: 200px;
+}
+#yel_led{
+    --led-col: rgb(255, 204, 0);
+    --rim:rgb(238, 148, 13);
+    left: 400px; top: 200px
+}
+#grn_led{
+    --led-col: rgb(15, 170, 15);
+    --rim: rgb(5, 93, 5);
+    left: 450px; top:200px
+}
+#rgb_led{
+    --led-col: rgb(221, 247, 249);
+    --rim: rgb(186, 218, 220);
+    left: 700px; top: 200px;
+}
+.highlight{
+    width:7px; height: 7px; border-radius: 50%; position: absolute; background-color: rgb(233, 238, 240); left:5px;top:5px;
+    box-shadow: 3px 3px 5px 5px rgba(233, 238, 240, 0.528), 
+                2px 2px 0 0  rgba(233, 238, 240, 0.528);
+}
+#huzzah{
+    width: 300px; height: 150px; background-color: rgb(60, 33, 2); top: 50px; left: 0px; position: absolute; border-radius: 10%;
+
+}
+.mem{
+    width:100px; height:100px; background-color: rgb(179, 175, 175); position:absolute; box-shadow: 3px 3px 3px 5px rgb(161, 158, 158); top: 25px; left:150px;
+}
+.circ{
+    width: 25px; height: 25px; position: absolute;  border-radius: 50%;background-color: rgb(208, 150, 74); box-shadow: inset 3px 4px 0 -5px  rgb(151, 100, 30);
+}
+
+#mcp{
+    width: 120px; height: 70px; background: rgb(13, 13, 163);position: absolute; top: 25px; left: 500px; border-radius: 20%;
+}
+
+#potent{
+    position: absolute; background: rgb(157, 155, 155); width: 110px; height: 60px; top: 80px; left: 750px; border-radius: 20%;
+}
+#body_pot{
+    position: absolute; background: rgb(122, 121, 121); width: 30px; height: 30px; top: -30px; left: 40px; 
+}
+#button_pot{
+    position: absolute; background: #3b3a3a; width: 100px; height: 100px; top: -140px; left: 5px; clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%); border-radius: 20%;
+}
+#button_pot_base{
+    position: absolute; width:120px; height: 20px; background: #3b3a3a;
+    top: -50px; left:-5px;
+}
+#details{
+    position: absolute; background: #000; width: 120px; height: 10px; top: -60px; left: -5px; clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+}
+#more_details{
+    position: absolute; background: #cb1616; width: 15px; height: 80px; top:-150px; left: 45px;border-radius:10%;
+}
+#button{
+    width: 50px; height: 50px; background-color: rgb(203, 157, 87);
+    position: absolute; top: 120px; left: 950px;
+}
+.c{
+    width: 7px; height:7px; border-radius: 50%;
+    position: absolute;background:#3b3a3a;
+}
+    
+.wires{
+    position: absolute; background: var(--wr-col); border-radius: 10%;
+}
